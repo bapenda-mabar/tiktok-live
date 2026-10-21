@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI TikTok Live Host</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Three.js r158 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<div id="stage">
+
+  <!-- Background particle canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Three.js 3D head -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Speaking indicator + audio visualizer -->
+  <div id="viz-section">
+    <div id="speaking-indicator">● SPEAKING</div>
+    <canvas id="viz-canvas"></canvas>
+  </div>
+
+  <!-- Subtitle (question being answered) -->
+  <div id="subtitle"></div>
+
+  <!-- ── Control Panel (toggle D) ── -->
+  <div id="panel">
+    <h2>⚙ Panel Kontrol</h2>
+
+    <div class="panel-section">
+      <h3>Koneksi TikTok Live</h3>
+      <div class="row">
+        <span id="status-dot"></span>
+        <span id="status-text" style="color:#8899bb;font-size:24px;">Tidak terhubung</span>
+      </div>
+      <div class="row">
+        <label>Username TikTok</label>
+        <input type="text" id="inp-username" placeholder="@username" />
+      </div>
+      <div class="row">
+        <button id="btn-connect">Connect</button>
+        <button id="btn-disconnect" class="danger">Disconnect</button>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <h3>Konfigurasi AI</h3>
+      <div class="row">
+        <label>Host Name</label>
+        <input type="text" id="inp-hostname" placeholder="AI Host" />
+      </div>
+      <div class="row">
+        <label>Gemini API Key</label>
+        <input type="password" id="inp-gemini" placeholder="AIza..." />
+      </div>
+      <div class="row">
+        <label>System Prompt</label>
+        <textarea id="inp-prompt" placeholder="Tulis persona AI di sini…"></textarea>
+      </div>
+      <div class="row">
+        <button id="btn-save-config">Simpan Konfigurasi</button>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <h3>Simulasi Manual</h3>
+      <div class="row">
+        <label>Nama Penonton</label>
+        <input type="text" id="inp-sim-name" placeholder="Andi" />
+      </div>
+      <div class="row">
+        <label>Isi Komentar</label>
+        <input type="text" id="inp-sim-text" placeholder="halo kak, gimana kabar?" />
+      </div>
+      <div class="row">
+        <label>Nama Gift</label>
+        <input type="text" id="inp-sim-gift" placeholder="Rose" />
+      </div>
+      <div class="row">
+        <button id="btn-sim-comment">Kirim Komentar Tes</button>
+        <button id="btn-sim-gift">Kirim Gift Tes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="panel-hint">Tekan D untuk panel kontrol</div>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
